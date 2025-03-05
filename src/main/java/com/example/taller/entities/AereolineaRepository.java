@@ -11,28 +11,21 @@ import java.util.List;
 
 public interface AereolineaRepository extends JpaRepository<Aereolinea, Long> {
 
-    List<Aereolinea> findByAerolinea(String aerolinea);
-    Aereolinea findByAerolineaId(Long aerolineaId);
-    Aereolinea findByAerolineaName(String aerolineaName);
+    List<Aereolinea> findByAereolinea(String aerolinea);
+    Aereolinea findByAereolineaId(Long aerolineaId);
+    Aereolinea findByAereolineaName(String aerolineaName);
     Aereolinea findByAereolineaIdIn(List<Long> aerolineaIds);
     Aereolinea findAereolineasByAereolineaNameLike(String aerolineaName);
-    Aereolinea findAereolineasByAreolineaNameContaining(String aerolineaName);
+    Aereolinea findAereolineasByAereolineaNameContaining(String aerolineaName);
 
-   @Query("select a from Aereolinea a where a.nombre = ?1")
+   @Query("SELECT a FROM Aereolinea a WHERE a.nombre = ?1")
     Aereolinea findByNombre(String nombre);
-   @Query("select  a from Aereolinea  a where a.idAereolinea = ?1")
+   @Query("SELECT a FROM Aereolinea  a WHERE a.idAereolinea = ?1")
     Aereolinea findByIdAereolinea(Long idAereolinea);
-   @Query("select a from Aereolinea a where a.idAereolinea in ?1")
+   @Query("SELECT a FROM Aereolinea a WHERE a.idAereolinea IN ?1")
     Aereolinea findByIdAereolineasEnLista(List<Long> idAereolineas);
-   @Query("select a from Aereolinea a where a.nombre like ?1")
+   @Query("SELECT a FROM Aereolinea a WHERE a.nombre LIKE ?1")
     Aereolinea findByNombreLike(String nombre);
-   @Query("select a from Aereolinea a where a.nombre not like ?1")
+   @Query("SELECT a FROM Aereolinea a WHERE a.nombre NOT LIKE ?1")
     Aereolinea findByNombreNotLike(String nombre);
-
-
-
-
-
-
-
 }

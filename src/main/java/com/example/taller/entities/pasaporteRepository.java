@@ -10,24 +10,21 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface pasaporteRepository extends JpaRepository<Pasaporte, Long> {
-
     List<Pasaporte> findByReserva(String reserva);
     Pasaporte findByReservaId(Long reservaId);
     Pasaporte findByReservaName(String reservaName);
-    Pasaporte findByreservaIdIn(List<Long> reservaIds);
+    Pasaporte findByReservaIdIn(List<Long> reservaIds);
     Pasaporte findByReservaNameLike(String reservaNameLike);
     Pasaporte findByReservaNameContaining(String reservaNameContains);
 
-    @Query("select p from Pasaporte p where p.numero = ?1")
+    @Query("SELECT p FROM Pasaporte p WHERE p.numero = ?1")
     Reserva findByNombre(String nombre);
-    @Query("select  p from Pasaporte p where p.id = ?1")
+    @Query("SELECT p FROM Pasaporte p WHERE p.id = ?1")
     Reserva findByIdReserva(Long idAereolinea);
-    @Query("select p from Pasaporte p where p.id in ?1")
+    @Query("SELECT p FROM Pasaporte p WHERE p.id in ?1")
     Reserva findByIdReservaEnLista(List<Long> idAereolineas);
-    @Query("select p from Pasaporte p where p.id  not in   ?1")
+    @Query("SELECT p FROM Pasaporte p WHERE p.id  not in   ?1")
     Reserva findByIdPasaporteLike(Long idPasaporte);
-    @Query("select p from Reserva p where p.id in ?1")
+    @Query("SELECT p FROM Reserva p WHERE p.id in ?1")
     Reserva findByNombreReservaNotLike(Long pasaporteid);
-
-
 }

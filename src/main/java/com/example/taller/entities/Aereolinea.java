@@ -12,7 +12,6 @@ public class Aereolinea {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idAereolinea;
-
     private String nombre;
 
     @ManyToMany
@@ -20,8 +19,6 @@ public class Aereolinea {
             joinColumns = @JoinColumn(name = "aereolineaID"),
             inverseJoinColumns = @JoinColumn(name = "vueloID"))
     private Set<Vuelo> vuelos; // Renombrado a "vuelos" para mayor claridad
-
-
 }
 
 

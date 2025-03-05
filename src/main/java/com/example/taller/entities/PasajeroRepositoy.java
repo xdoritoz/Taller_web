@@ -10,24 +10,21 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface PasajeroRepositoy extends JpaRepository<Pasajero, Long> {
-
     List<Pasajero> findByPasajero(String pasajero);
-    Pasajero findByPasjeroId(Long pasajeroId);
+    Pasajero findByPasajeroId(Long pasajeroId);
     Pasajero findByPasajeroName(String pasajeroName);
     Pasajero findBypasajeroIdIn(List<Long> pasajeroIds);
     Pasajero findByPasajeroNameLike(String pasajeroNameLike);
     Pasajero findByPasajeroNameContaining(String pasajeroNameContains);
 
-    @Query("select p from Pasajero p where p.nombre = ?1")
+    @Query("SELECT p FROM Pasajero p WHERE p.nombre = ?1")
     Pasajero findByNombre(String nombre);
-    @Query("select  p from Pasajero  p where p.id = ?1")
+    @Query("SELECT p FROM Pasajero  p WHERE p.id = ?1")
     Pasajero findByIdPasajero(Long idAereolinea);
-    @Query("select p from Pasajero p where p.id in ?1")
+    @Query("SELECT p FROM Pasajero p WHERE p.id in ?1")
     Pasajero findByIdPasajeroEnLista(List<Long> idAereolineas);
-    @Query("select p from Aereolinea p where p.nombre like ?1")
+    @Query("SELECT p FROM Aereolinea p WHERE p.nombre LIKE ?1")
     Pasajero findByNombrePasajeroLike(String nombre);
-    @Query("select p from Pasajero p where p.nombre not like ?1")
+    @Query("SELECT p FROM Pasajero p WHERE p.nombre NOT LIKE ?1")
     Pasajero findByNombrePasajeroNotLike(String nombre);
-
-
 }
