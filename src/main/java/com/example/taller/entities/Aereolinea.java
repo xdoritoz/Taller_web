@@ -2,12 +2,14 @@ package com.example.taller.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Set;
 
 @Entity
 @Data
+
 public class Aereolinea {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
