@@ -24,6 +24,4 @@ public interface PasajeroRepositoy extends JpaRepository<Pasajero, Long> {
     Pasajero findByNombrePasajeroLike(String nombre);
     @Query("SELECT p FROM Pasajero p WHERE p.nombre NOT LIKE ?1")
     Pasajero findByNombrePasajeroNotLike(String nombre);
-    @Query("SELECT p FROM Pasajero p WHERE p.nombre LIKE ?1")
-    Pasajero findBynamePasajeroLike(String nombre);
 }
